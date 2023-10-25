@@ -1,4 +1,5 @@
 import { List } from 'antd';
+import styled from '@modern-js/runtime/styled';
 
 const getAvatar = (users: Array<{ name: string; email: string }>) =>
   users.map(user => ({
@@ -13,6 +14,13 @@ const mockData = getAvatar([
   { name: 'Davis', email: '"t.kqkoj@utlkwnpwk.nu' },
 ]);
 
+const Avatar = styled.img`
+  width: 50px;
+  height: 50px;
+  border: 4px solid #0ef;
+  border-radius: 50%;
+`;
+
 function App() {
   return (
     <div>
@@ -21,7 +29,7 @@ function App() {
         renderItem={({ name, email, avatar }) => (
           <List.Item key={name}>
             <List.Item.Meta
-              avatar={<img alt="avatar" src={avatar} width={60} height={60} />}
+              avatar={<Avatar src={avatar} />}
               title={name}
               description={email}
             />
