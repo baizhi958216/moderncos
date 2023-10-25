@@ -1,5 +1,5 @@
 import { List } from 'antd';
-import styled from '@modern-js/runtime/styled';
+import Avatar from '../components/Avatar';
 
 const getAvatar = (users: Array<{ name: string; email: string }>) =>
   users.map(user => ({
@@ -13,13 +13,6 @@ const mockData = getAvatar([
   { name: 'Bradley', email: 'd.wfovsqyo@gpkcjwjgb.fr' },
   { name: 'Davis', email: '"t.kqkoj@utlkwnpwk.nu' },
 ]);
-
-const Avatar = styled.img`
-  width: 50px;
-  height: 50px;
-  border: 4px solid #0ef;
-  border-radius: 50%;
-`;
 
 function App() {
   return (
