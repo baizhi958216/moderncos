@@ -10,7 +10,7 @@ type InfoProps = {
 const Item = ({ info }: { info: InfoProps }) => {
   const { avatar, name, email, archived } = info;
   return (
-    <div className="flex p-4 items-center border-gray-200 border-b">
+    <div className="ml-4 custom-text-gray flex-1 flex justify-between">
       <Avatar src={avatar} />
       <div className="ml-4 flex-1 flex justify-between">
         <div className="flex-1">

@@ -3,6 +3,7 @@ import 'tailwindcss/components.css';
 import 'tailwindcss/utilities.css';
 import { List } from 'antd';
 import Item from '../components/Item';
+import '../styles/utils.css';
 
 const getAvatar = (users: Array<{ name: string; email: string }>) =>
   users.map(user => ({
