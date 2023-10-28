@@ -1,9 +1,6 @@
-import 'tailwindcss/base.css';
-import 'tailwindcss/components.css';
-import 'tailwindcss/utilities.css';
+import { Helmet } from '@modern-js/runtime/head';
 import { List } from 'antd';
 import Item from '../components/Item';
-import '../styles/utils.css';
 
 const getAvatar = (users: Array<{ name: string; email: string }>) =>
   users.map(user => ({
@@ -21,6 +18,9 @@ const mockData = getAvatar([
 function App() {
   return (
     <div className="container lg mx-auto">
+      <Helmet>
+        <title>All</title>
+      </Helmet>
       <List
         dataSource={mockData}
         renderItem={info => <Item key={info.name} info={info} />}
