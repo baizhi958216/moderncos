@@ -16,6 +16,7 @@ export const loader = async (): Promise<LoaderData> => {
       name: firstName,
       avatar: `https://api.dicebear.com/7.x/pixel-art/svg?seed=${firstName}`,
       email: internet.email(),
+      archived: false,
     };
   });
 
