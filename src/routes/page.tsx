@@ -18,7 +18,7 @@ function App() {
         <title>All</title>
       </Helmet>
       <List
-        dataSource={data}
+        dataSource={items}
         renderItem={info => (
           <Item
             key={info.name}
