@@ -1,30 +1,7 @@
-import { Helmet } from '@modern-js/runtime/head';
-import { useModel } from '@modern-js/runtime/model';
-import { List } from 'antd';
-import Item from '../components/Item';
-import contacts from '../models/contacts';
+import Contacts from '../containers/Contacts';
 
-function App() {
-  const [{ items }, { archive }] = useModel(contacts);
-  return (
-    <div className="container lg mx-auto">
-      <Helmet>
-        <title>All</title>
-      </Helmet>
-      <List
-        dataSource={items}
-        renderItem={info => (
-          <Item
-            key={info.name}
-            info={info}
-            onArchive={() => {
-              archive(info.email);
-            }}
-          />
-        )}
-      />
-    </div>
-  );
+function Index() {
+  return <Contacts title="All" source="items" />;
 }
 
-export default App;
+export default Index;
