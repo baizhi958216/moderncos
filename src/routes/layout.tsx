@@ -1,12 +1,26 @@
 import { useState } from 'react';
 import { Radio, RadioChangeEvent } from 'antd';
-import { Outlet, useLocation, useNavigate } from '@modern-js/runtime/router';
+import {
+  Outlet,
+  useLocation,
+  useNavigate,
+  useLoaderData,
+} from '@modern-js/runtime/router';
+import { useModel } from '@modern-js/runtime/model';
+import contacts from '../models/contacts';
+import { LoaderData } from './layout.data';
 import 'tailwindcss/base.css';
 import 'tailwindcss/components.css';
 import 'tailwindcss/utilities.css';
 import '../styles/utils.css';
 
 export default function Layout() {
+  const { data } = useLoaderData() as LoaderData;
+  const [{ items }, { setItems }] = useModel(contacts);
+  if (items.length === 0) {
+    setItems(data);
+  }
+
   const navigate = useNavigate();
   const location = useLocation();
   const [currentList, setList] = useState(location.pathname || '/');

@@ -1,22 +1,14 @@
 import { List } from 'antd';
+import { useModel } from '@modern-js/runtime/model';
+import contacts from '../../models/contacts';
 import Item from '../../components/Item';
 
-const getAvatar = (users: Array<{ name: string; email: string }>) =>
-  users.map(user => ({
-    ...user,
-    avatar: `https://api.dicebear.com/7.x/pixel-art/svg?seed=${user.name}`,
-  }));
-
-const getMockArchivedData = () =>
-  getAvatar([
-    { name: 'Thomas', email: 'w.kccip@bllmfbgv.dm' },
-    { name: 'Chow', email: 'f.lfqljnlk@ywoefljhc.af' },
-  ]);
 function Index() {
+  const [{ archived }] = useModel(contacts);
   return (
     <div className="container lg mx-auto">
       <List
-        dataSource={getMockArchivedData()}
+        dataSource={archived}
         renderItem={info => <Item key={info.name} info={info} />}
       />
     </div>
